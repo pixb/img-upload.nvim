@@ -42,7 +42,7 @@ function M.download_img(url)
 	local file_name = M.generate_uuid() .. "." .. file_extension
 	local full_path = temp_dir .. "/" .. file_name
 
-	local command = string.format("curl -o %s %s", full_path, url)
+	local command = string.format("curl --compressed -o %s %s", full_path, url)
 	local res = os.execute(command)
 
 	if res then
